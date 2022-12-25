@@ -1,6 +1,6 @@
-const Qiniu = require('qiniu')
+import Qiniu from 'qiniu'
 
-module.exports = function Token(accessKey, secretKey, bucket, expires = 3600) {
+export function Token(accessKey, secretKey, bucket, expires = 3600) {
   const mac = new Qiniu.auth.digest.Mac(accessKey, secretKey)
   const options = {
     scope: bucket,
