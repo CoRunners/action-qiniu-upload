@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","mappings":";;AAAA;AACA","sources":["../webpack://action-qiniu-upload/webpack/runtime/compat","../webpack://action-qiniu-upload/./index.js"],"sourcesContent":["\nif (typeof __webpack_require__ !== 'undefined') __webpack_require__.ab = __dirname + \"/\";",""],"names":[],"sourceRoot":""}

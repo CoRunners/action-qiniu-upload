@@ -1,0 +1,8 @@
+name: 'Qiniu Kodo Upload'
+description: 'Qiniu Upload Action'
+branding:
+  icon: 'upload-cloud'
+  color: 'green'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
