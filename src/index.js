@@ -1,7 +1,7 @@
-const Core = require('@actions/core')
-const Github = require('@actions/github')
-const Token = require('./token')
-const Upload = require('./upload')
+import Core from '@actions/core'
+import Github from '@actions/github'
+import { Token } from './token.js'
+import { Upload } from './upload.js'
 
 async function run() {
   try {
@@ -22,24 +22,15 @@ async function run() {
       (key, idx, total) => {
         Core.info(`Uploaded[${idx}/${total}]: ${key}`)
       },
-      (error) => {
-        if (error instanceof Error) {
-          Core.setFailed(error.message)
+      (result) => {
+        if (result instanceof Error) {
+          Core.setFailed(result.message)
         } else {
+          Core.info(result)
           Core.info('All Completed.')
         }
       }
     )
-    // const result = await Upload(
-    //   zone,
-    //   token,
-    //   sourceDir,
-    //   destDir,
-    //   (key, idx, total) => {
-    //     Core.info(`Uploaded[${idx}/${total}]: ${key}`)
-    //   }
-    // )
-    // console.log(`result ${result}`)
 
     const payload = JSON.stringify(Github.context.payload, undefined, 2)
     console.log(`The event payload: ${payload}`)
