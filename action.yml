@@ -3,6 +3,24 @@ description: 'Qiniu Upload Action'
 branding:
   icon: 'upload-cloud'
   color: 'green'
+inputs:
+  access_key:
+    description: 'Your qiniu access key'
+    required: true
+  secret_key:
+    description: 'Your qiniu secret key'
+    required: true
+  bucket:
+    description: 'You will upload to bucket name'
+    required: true
+  expires:
+    description: 'Upload token expires, default 3600(s)'
+  source_dir:
+    description: 'The directory of uploading files'
+    required: true
+  dest_dir:
+    description: 'The directory of uploaded files, example: dest/'
+    default: ''
 runs:
   using: 'node16'
   main: 'dist/index.js'
